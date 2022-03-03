@@ -1,1 +1,50 @@
 <router-outlet></router-outlet>
+
+<mat-sidenav-container>
+  <mat-sidenav></mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar class='mat-elevation-z1'>
+      <mat-toolbar-row>
+        <button mat-icon-button>
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span class='app-title'>Folivera</span>
+        <span class='flex-spacer'></span>
+        <form class='mat-elevation-z1'>
+          <input placeholder='Ara'>
+          <button mat-icon-button>
+            <mat-icon>search</mat-icon>
+          </button>
+        </form>
+        <span class='flex-spacer'></span>
+        <button mat-button>SIGN IN</button>
+      </mat-toolbar-row>
+      <mat-toolbar-row></mat-toolbar-row>
+
+    </mat-toolbar>
+
+    <main>
+
+      <div class='filter'>
+        <mat-chip-list>
+          <mat-chip>Diziler</mat-chip>
+          <mat-chip>Filmler</mat-chip>
+        </mat-chip-list>
+      </div>
+
+      <div class='items-list'>
+        <div class='item' *ngFor='let item of items'>
+          <div class='img-placeholder'>
+            <img src='{{item.url}}' alt=''>
+          </div>
+          <div class='item-details'>
+            <div class='tags'>
+              <span class='tag' *ngFor='let tag of item.tags'>{{tag}},</span>
+            </div>
+            <div class='item-title'>{{item.title}}</div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </mat-sidenav-content>
+</mat-sidenav-container>
